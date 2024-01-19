@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color changing button</title>
+</head>
+<body>
+    <button id="myButton">Click me to change color</button>
+    <input type="number" id="num1">
+    <input type="number" id="num2">
+    <button onclick="calculate()">Add</button>
+    <p id="result"></p>
+<script>
+    const button = document.getElementById("myButton");
+
+button.addEventListener("click", changeColor);
+
+function changeColor() {
+  const colors = ["red", "green", "blue", "orange", "purple"];
+  const randomIndex = Math.floor(Math.random() * colors.length);
+  button.style.backgroundColor = colors[randomIndex];
+}
+const currentHour = new Date().getHours();
+
+if (currentHour >= 4 && currentHour < 12) {
+  alert("Good morning!");
+} else if (currentHour >= 12 && currentHour < 18) {
+  alert("Good afternoon!");
+} else {
+  alert("Good evening!");
+}
+function calculate() {
+  const num1 = parseFloat(document.getElementById("num1").value);
+  const num2 = parseFloat(document.getElementById("num2").value);
+  const result = num1 + num2;
+  document.getElementById("result").textContent = "Result: " + result;
+}
+</script>
+<style>
+    body{
+        background-color: gray;
+    }
+</style>
+</body>
+</html>
